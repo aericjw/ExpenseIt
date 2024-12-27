@@ -1,0 +1,57 @@
+# Dynatrace OpenKit - .NET Reference Implementation
+
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+![Build Status](https://github.com/Dynatrace/openkit-dotnet/actions/workflows/dotnet.yml/badge.svg?branch=main)
+[![Coverage Status](https://coveralls.io/repos/github/Dynatrace/openkit-dotnet/badge.svg?branch=main)](https://coveralls.io/github/Dynatrace/openkit-dotnet?branch=main)
+
+## What is the OpenKit?
+
+The OpenKit provides an easy and lightweight way to get insights into applications with Dynatrace by instrumenting the source code of those applications.
+
+It is best suited for applications running separated from their backend and communicating via HTTP, like rich-client-applications, embedded devices, terminals, and so on.
+
+The big advantages of the OpenKit are that it's designed to
+* be as easy-to-use as possible
+* be as dependency-free as possible (no third party libraries or Dynatrace Agent needed)
+* be easily portable to other languages and platforms
+
+This repository contains the reference implementation in pure .NET/C#. Other implementations are listed as follows:
+* Java: https://github.com/Dynatrace/openkit-java/
+* C/C++: https://github.com/Dynatrace/openkit-native/
+* JavaScript: https://github.com/Dynatrace/openkit-js/
+
+## What you can do with the OpenKit
+* Create Sessions and User Actions
+* Report values, events, errors and crashes
+* Trace web requests to server-side PurePaths
+* Tag Sessions with a user tag
+* Use it together with Dynatrace
+
+## What you cannot do with the OpenKit
+* Create server-side PurePaths (this functionality is provided by [OneAgent SDKs](https://github.com/Dynatrace/OneAgent-SDK))
+* Create metrics (use the [Custom network devices & metrics API](https://www.dynatrace.com/support/help/dynatrace-api/timeseries/what-does-the-custom-network-devices-and-metrics-api-provide/) to report metrics)
+
+## Design Principles
+* API should be as simple and easy-to-understand as possible
+* Incorrect usage of the OpenKit should still lead to valid results, if possible
+* In case of errors, the API should not throw exceptions, but only log those errors (in verbose mode)
+* No usage of third-party libraries, should run without any dependencies
+* Avoid usage of newest .NET APIs, should be running on older .NET runtimes, too
+* Avoid usage of too much .NET-specific APIs to allow rather easy porting to other languages
+* Design reentrant APIs and document them
+
+## General Remarks
+
+* All non binary files within the repository are formatted with unix style (LF) line endings.
+
+## Getting started
+* [Installing and updating OpenKit .NET](https://github.com/Dynatrace/openkit-dotnet/blob/main/docs/installing.md)
+* [General concepts](https://github.com/Dynatrace/openkit-dotnet/blob/main/docs/concepts.md)
+* [Detailed example](https://github.com/Dynatrace/openkit-dotnet/blob/main/docs/example.md)
+* [Contributing to OpenKit .NET](https://github.com/Dynatrace/openkit-dotnet/blob/main/CONTRIBUTING.md)
+* [Supported versions](https://github.com/Dynatrace/openkit-dotnet/blob/main/docs/supported_versions.md)
+* [Upgrade guide](https://github.com/Dynatrace/openkit-dotnet/blob/main/docs/upgrade_guide.md)
+
+## Advanced topics
+* [Building OpenKit .NET](https://github.com/Dynatrace/openkit-dotnet/blob/main/docs/building.md)
+* [OpenKit .NET internals](https://github.com/Dynatrace/openkit-dotnet/blob/main/docs/internals.md)
